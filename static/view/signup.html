@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+    <link rel="stylesheet" href="./css/two.css"> <!-- 请确保样式表路径正确 -->
+    <style>
+        body {
+            background: url('/static/img/2-img/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .register-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .register-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .register-container .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .register-container .login-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="register-container">
+    <h2>注册</h2>
+    <form action="/user/signup" method="POST"> <!-- 这里的 action 需要指向处理注册请求的后端路由 -->
+        <input type="text" name="username" placeholder="用户名" required>
+        <input type="password" name="password" placeholder="密码" required>
+        <input type="password" name="confirm_password" placeholder="确认密码" required>
+        <button type="submit" class="btn_register">注册</button> <!-- 添加提交按钮 -->
+    </form>
+    <div class="login-link">
+        <p>已经有账户？ <a href="/user/signin">登录</a></p> <!-- 登录链接 -->
+    </div>
+</div>
+</body>
+</html>
