@@ -212,16 +212,16 @@ type TransferData struct {
 
 **作用**: 存储系统中所有唯一文件的元信息
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| id | int | 主键,自增 |
-| file_sha1 | char(40) | 文件 SHA1 哈希值(唯一索引) |
-| file_name | varchar(256) | 文件名 |
-| file_size | bigint | 文件大小(字节) |
-| file_addr | varchar(1024) | 文件存储路径 |
-| create_at | datetime | 创建时间 |
-| update_at | datetime | 更新时间 |
-| status | int | 文件状态(0=可用,1=禁用,2=已删除) |
+| 字段      | 类型          | 说明                             |
+| --------- | ------------- | -------------------------------- |
+| id        | int           | 主键,自增                        |
+| file_sha1 | char(40)      | 文件 SHA1 哈希值(唯一索引)       |
+| file_name | varchar(256)  | 文件名                           |
+| file_size | bigint        | 文件大小(字节)                   |
+| file_addr | varchar(1024) | 文件存储路径                     |
+| create_at | datetime      | 创建时间                         |
+| update_at | datetime      | 更新时间                         |
+| status    | int           | 文件状态(0=可用,1=禁用,2=已删除) |
 
 **索引**:
 - 主键: `id`
@@ -234,19 +234,19 @@ type TransferData struct {
 
 **作用**: 存储用户账户信息
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| id | int | 主键,自增 |
-| user_name | varchar(64) | 用户名 |
-| user_pwd | varchar(256) | 用户密码(加密存储) |
-| email | varchar(64) | 邮箱 |
-| phone | varchar(128) | 手机号(唯一索引) |
-| email_validated | tinyint(1) | 邮箱是否验证 |
-| phone_validated | tinyint(1) | 手机号是否验证 |
-| signup_at | datetime | 注册时间 |
-| last_active | datetime | 最后活跃时间 |
-| profile | text | 用户属性(JSON) |
-| status | int | 账户状态(0=启用,1=禁用,2=锁定,3=已删除) |
+| 字段            | 类型         | 说明                                    |
+| --------------- | ------------ | --------------------------------------- |
+| id              | int          | 主键,自增                               |
+| user_name       | varchar(64)  | 用户名                                  |
+| user_pwd        | varchar(256) | 用户密码(加密存储)                      |
+| email           | varchar(64)  | 邮箱                                    |
+| phone           | varchar(128) | 手机号(唯一索引)                        |
+| email_validated | tinyint(1)   | 邮箱是否验证                            |
+| phone_validated | tinyint(1)   | 手机号是否验证                          |
+| signup_at       | datetime     | 注册时间                                |
+| last_active     | datetime     | 最后活跃时间                            |
+| profile         | text         | 用户属性(JSON)                          |
+| status          | int          | 账户状态(0=启用,1=禁用,2=锁定,3=已删除) |
 
 **索引**:
 - 主键: `id`
@@ -259,11 +259,11 @@ type TransferData struct {
 
 **作用**: 存储用户登录 Token
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| id | int | 主键,自增 |
-| user_name | varchar(64) | 用户名(唯一索引) |
-| user_token | char(40) | 用户 Token |
+| 字段       | 类型        | 说明             |
+| ---------- | ----------- | ---------------- |
+| id         | int         | 主键,自增        |
+| user_name  | varchar(64) | 用户名(唯一索引) |
+| user_token | char(40)    | 用户 Token       |
 
 **索引**:
 - 主键: `id`
@@ -275,16 +275,16 @@ type TransferData struct {
 
 **作用**: 存储用户与文件的关联关系(多对多)
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| id | int | 主键,自增 |
-| user_name | varchar(64) | 用户名 |
-| file_sha1 | varchar(64) | 文件 SHA1 哈希值 |
-| file_size | bigint | 文件大小 |
-| file_name | varchar(256) | 用户自定义文件名 |
-| upload_at | datetime | 上传时间 |
-| last_update | datetime | 最后修改时间 |
-| status | int | 文件状态(0=正常,1=已删除,2=禁用) |
+| 字段        | 类型         | 说明                             |
+| ----------- | ------------ | -------------------------------- |
+| id          | int          | 主键,自增                        |
+| user_name   | varchar(64)  | 用户名                           |
+| file_sha1   | varchar(64)  | 文件 SHA1 哈希值                 |
+| file_size   | bigint       | 文件大小                         |
+| file_name   | varchar(256) | 用户自定义文件名                 |
+| upload_at   | datetime     | 上传时间                         |
+| last_update | datetime     | 最后修改时间                     |
+| status      | int          | 文件状态(0=正常,1=已删除,2=禁用) |
 
 **索引**:
 - 主键: `id`
@@ -297,37 +297,37 @@ type TransferData struct {
 
 ### 5.1 后端技术
 
-| 技术 | 用途 |
-|------|------|
-| Go 1.x | 开发语言 |
-| Gin | HTTP Web 框架 |
-| go-micro | 微服务框架 |
-| gRPC | 微服务通信协议 |
-| Protocol Buffers | 数据序列化 |
+| 技术             | 用途           |
+| ---------------- | -------------- |
+| Go 1.x           | 开发语言       |
+| Gin              | HTTP Web 框架  |
+| go-micro         | 微服务框架     |
+| gRPC             | 微服务通信协议 |
+| Protocol Buffers | 数据序列化     |
 
 ### 5.2 数据存储
 
-| 技术 | 用途 |
-|------|------|
-| MySQL | 关系型数据库 |
-| Redis | 缓存、分块上传状态 |
+| 技术     | 用途               |
+| -------- | ------------------ |
+| MySQL    | 关系型数据库       |
+| Redis    | 缓存、分块上传状态 |
 | RabbitMQ | 消息队列、异步任务 |
 
 ### 5.3 存储后端
 
-| 技术 | 用途 |
-|------|------|
-| 本地存储 | 临时文件存储 |
-| 阿里云 OSS | 对象存储 |
-| Ceph | 分布式存储 |
+| 技术       | 用途         |
+| ---------- | ------------ |
+| 本地存储   | 临时文件存储 |
+| 阿里云 OSS | 对象存储     |
+| Ceph       | 分布式存储   |
 
 ### 5.4 部署运维
 
-| 技术 | 用途 |
-|------|------|
-| Docker | 容器化 |
-| Kubernetes | 容器编排 |
-| Traefik | Ingress 控制器 |
+| 技术       | 用途           |
+| ---------- | -------------- |
+| Docker     | 容器化         |
+| Kubernetes | 容器编排       |
+| Traefik    | Ingress 控制器 |
 
 ---
 
@@ -414,3 +414,6 @@ type TransferData struct {
 ## 9. 总结
 
 本项目是一个功能完整的分布式文件存储系统,采用微服务架构,支持文件的上传、下载、秒传、分块上传等功能。系统使用 Go 语言开发,基于 Kubernetes 部署,具有高可扩展性和高可用性。数据库设计合理,支持文件去重和用户文件关联。系统整体架构清晰,模块职责明确,适合作为学习微服务架构和分布式存储的参考项目。
+
+
+
