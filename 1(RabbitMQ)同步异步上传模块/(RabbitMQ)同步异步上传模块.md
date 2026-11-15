@@ -7,6 +7,9 @@
 
 `service/transfer/main.go`
 
+![alt text](imgs/image-4.png)
+![alt text](imgs/image-3.png)
+
 
 ## RabbitMQ原理：
 ### RabbitMQ关键术语
@@ -49,15 +52,15 @@
 11. **AMQP（高级消息队列协议）**：
      - RabbitMQ 使用的消息传递协议，提供消息的可靠传输和路由功能。
 一种开源的消息代理、面向消息的中间件、遵循AMQP协议的MQ服务，逻辑解耦来解决异步任务。
-![alt text](图片/image.png)
+![alt text](imgs/image.png)
 
 **Direct：**
 RK=k1的消息通过交换机投递到BK=k1的队列中队列中的消息再由提前与该队列绑定的消费者进行消费。，k2同理。
-![alt text](图片/image-1.png)
+![alt text](imgs/image-1.png)
 **Topic：**
 为每个队列设置一个通配符，通配符为rk.10的消息通通通过交换机路由到队列1，通配符为rk.20开头的队列统统路由到队列2
 
-![alt text](图片/image-2.png)
+![alt text](imgs/image-2.png)
 
 
 ## 完整过程

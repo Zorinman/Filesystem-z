@@ -206,7 +206,8 @@ Hash:
 ---
 
 ### 3.7 异步上传模块(RabbitMQ)
-
+![alt text](imgs/image.png)
+![alt text](imgs/image-1.png)
 **技术栈**: RabbitMQ 消息队列
 
 **功能**:
